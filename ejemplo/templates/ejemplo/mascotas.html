@@ -1,7 +1,7 @@
 {% extends 'ejemplo/base_mascotas.html' %}
 {% block contenido %}
 <a href="/mi-mascota/alta">Agregar Nueva Mascota</a>
-{% for mascota in lista_mascota %}
+{% for mascota in lista_mascotas %}
 <ul>
     <li> Nombre: {{mascota.nombre}}, Color: {{mascota.color}}, Edad: {{mascota.edad}}
         <!-- Esto agrega un link al form de actulización-->
@@ -10,7 +10,8 @@
     </li>
 </ul>
 {% endfor %}
-{%endblock %}
+
+{% endblock %}
 
 {% block titulo%}
 Lista de todos mis Mascotas

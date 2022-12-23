@@ -41,7 +41,7 @@ def mostrar_mascotas(request):
 
 def mostrar_vehiculos(request):
     lista_vehiculos = Vehiculos.objects.all()
-    return render (request, "ejemplo/vehiculos.html",  {"lista_vehiculos": lista_vehiculos})
+    return render (request, "ejemplo/vehiculo.html",  {"lista_vehiculos": lista_vehiculos})
 
 class BuscarFamiliar(View):
     form_class = Buscar
@@ -215,7 +215,7 @@ class BuscarVehiculo(View):
 class AltaVehiculos (View):
 
     form_class = VehiculoForm
-    template_name = 'ejemplo/alta_vehiculo.html'
+    template_name = 'ejemplo/alta_vehiculos.html'
     initial = {"modelo":"", "marca":"", "año":""}
 
     def get(self, request):
@@ -235,7 +235,7 @@ class AltaVehiculos (View):
 
 class ActualizarVehiculos(View):
   form_class = VehiculoForm
-  template_name = 'ejemplo/actualizar_mascotas.html'
+  template_name = 'ejemplo/actualizar_vehiculos.html'
   initial = {"marca":"", "modelo":"", "año":""}
   
 
@@ -266,5 +266,5 @@ class BorrarVehiculo(View):
   def get(self, request, pk): 
       vehiculo = get_object_or_404(Vehiculos, pk=pk)
       vehiculo.delete()
-      mascotas = Vehiculos.objects.all()
-      return render(request, self.template_name, {'lista_vehiculos': vehiculo})
+      vehiculos = Vehiculos.objects.all()
+      return render(request, self.template_name, {'lista_vehiculos': vehiculos})

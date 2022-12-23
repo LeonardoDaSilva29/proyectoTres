@@ -1,9 +1,9 @@
-{% extends 'ejemplo/base_vehiculo.html' %}
+{% extends 'ejemplo/base_vehiculos.html' %}
 {% block titulo%} Modificar un Vehiculo {% endblock %}
 {% block contenido %}
 
 <!-- Prestar aatención a la variable familiar.id -->
-<form action="/mi-vehiculo/actualizar/{{ Vehiculo.id }}" method="post"> 
+<form action="/mi-vehiculo/actualizar/{{ vehiculo.id }}" method="post"> 
     {% csrf_token %}
     {{ form.as_p }}
     <!-- CON EL .as_p SE QUEDAN LOS CAMPOS UNO DEBADO DEL OTRO -->
@@ -11,6 +11,8 @@
 </form>
 
 <h2 style="color:green">{{msg_exito}}</h2>
+
+<a href="/mi-vehiculo">Volver a lista de Vehiculos</a>
 
 {% endblock %}
 
