@@ -1,0 +1,14 @@
+{% extends 'ejemplo/base_vehiculo.html' %}
+{% block titulo%} Alta de nuevo Vehiculo {% endblock %}
+{% block contenido %}
+  
+  <form action="/mi-vehiculo/alta" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+  </form>
+
+  <h2 style="color:green">{{msg_exito}}</h2>
+
+  <a href="/mi-vehiculo">Volver a lista de Vehiculos</a>
+{% endblock %}

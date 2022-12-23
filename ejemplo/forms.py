@@ -1,6 +1,6 @@
 from django import forms
-from ejemplo.models import Familiar
-from ejemplo.models import Mascotas
+from ejemplo.models import Familiar, Mascotas, Vehiculos
+
 
 class Buscar(forms.Form):
     nombre = forms.CharField(max_length=100,
@@ -15,3 +15,8 @@ class MascotaForm(forms.ModelForm):
   class Meta:
     model = Familiar
     fields = ['nombre', 'direccion', 'numero_pasaporte']
+
+class VehiculoForm(forms.ModelForm):
+  class Meta:
+    model = Vehiculos
+    fields = ['modelo', 'marca', 'año']
