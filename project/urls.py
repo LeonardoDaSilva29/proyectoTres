@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from ejemplo.views import index, saludar_a, sumar, buscar, mostrar_familiares, BuscarFamiliar, AltaFamiliar, ActualizarFamiliar, BorrarFamiliar
+from ejemplo.views import (AltaMascotas, index, saludar_a, sumar, buscar, mostrar_familiares, BuscarFamiliar, AltaFamiliar, ActualizarFamiliar, BorrarFamiliar, 
+                            mostrar_mascotas, BuscarMascota, ActualizarMascotas, BorrarMascotas)
 
 
 
@@ -31,4 +32,11 @@ urlpatterns = [
     # EL paramatro pk hace referencia al identificador único en la base de datos para Familiar.
     path('mi-familia/actualizar/<int:pk>', ActualizarFamiliar.as_view()), # NUEVA RUTA PARA actualizar FAMILIAR
     path('mi-familia/borrar/<int:pk>', BorrarFamiliar.as_view()), # NUEVA RUTA PARA borrar FAMILIAR
+
+    path('mi-mascota//', mostrar_mascotas),
+    path('mi-mascota/buscar', BuscarMascota.as_view()),
+    path('mi-mascota/alta', AltaMascotas.as_view()),
+    path('mi-mascota/actualizar/<int:pk>', ActualizarMascotas.as_view()), 
+    path('mi-mascota/borrar/<int:pk>', BorrarMascotas.as_view()),
+
 ]

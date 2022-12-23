@@ -1,9 +1,9 @@
-{% extends 'ejemplo/base.html' %}
-{% block titulo%} Modificar un Familiar {% endblock %}
+{% extends 'ejemplo/base_mascotas.html' %}
+{% block titulo%} Modificar una Mascota {% endblock %}
 {% block contenido %}
 
 <!-- Prestar aatención a la variable familiar.id -->
-<form action="/mi-familia/actualizar/{{ familiar.id }}" method="post"> 
+<form action="/mi-mascota/actualizar/{{ mascota.id }}" method="post"> 
     {% csrf_token %}
     {{ form.as_p }}
     <!-- CON EL .as_p SE QUEDAN LOS CAMPOS UNO DEBADO DEL OTRO -->
