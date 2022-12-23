@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404 # <----- Nuevo import
 from django.shortcuts import render
-from ejemplo.models import Familiar, Mascotas
+from ejemplo.models import Familiar, Mascotas, Vehiculos
 from ejemplo.forms import Buscar, FamiliarForm, MascotaForm, VehiculoForm  # <--- NUEVO IMPORT
 from django.views import View # <-- NUEVO IMPORT 
 
@@ -36,8 +36,12 @@ def mostrar_familiares(request):
     return render (request, "ejemplo/familiares.html",  {"lista_familiares": lista_familiares})
 
 def mostrar_mascotas(request):
-    lista_mascotas = Mascota.objects.all()
+    lista_mascotas = Mascotas.objects.all()
     return render (request, "ejemplo/mascotas.html",  {"lista_mascotas": lista_mascotas})
+
+def mostrar_vehiculos(request):
+    lista_vehiculos = Vehiculos.objects.all()
+    return render (request, "ejemplo/vehiculos.html",  {"lista_vehiculos": lista_vehiculos})
 
 class BuscarFamiliar(View):
     form_class = Buscar
@@ -212,7 +216,7 @@ class AltaVehiculos (View):
 
     form_class = VehiculoForm
     template_name = 'ejemplo/alta_vehiculo.html'
-    initial = {"marca":"", "modelo":"", "año":""}
+    initial = {"modelo":"", "marca":"", "año":""}
 
     def get(self, request):
         form = self.form_class(initial=self.initial)

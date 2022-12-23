@@ -13,8 +13,8 @@ class FamiliarForm(forms.ModelForm):
 
 class MascotaForm(forms.ModelForm):
   class Meta:
-    model = Familiar
-    fields = ['nombre', 'direccion', 'numero_pasaporte']
+    model = Mascotas
+    fields = ['nombre', 'color', 'edad']
 
 class VehiculoForm(forms.ModelForm):
   class Meta:

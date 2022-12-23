@@ -1,7 +1,7 @@
 {% extends 'ejemplo/base_vehiculo.html' %}
 {% block contenido %}
-<a href="/mi-mascota/alta">Agregar Nuevo Vehiculo</a>
-{% for mascota in lista_mascota %}
+<a href="/mi-vehiculo/alta">Agregar Nuevo Vehiculo</a>
+{% for vehiculo in lista_vehiculo %}
 <ul>
     <li> Modelo: {{vehiculo.modelo}}, Marca: {{vehiculo.marca}}, Año: {{vehiculo.año}}
         <!-- Esto agrega un link al form de actulización-->

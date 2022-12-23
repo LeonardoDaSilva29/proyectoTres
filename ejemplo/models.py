@@ -15,8 +15,9 @@ class Familiar(models.Model):
 class Mascotas(models.Model):
     
     nombre = models.CharField(max_length=15)
-    edad = models.IntegerField()
     color = models.CharField(max_length=15)
+    edad = models.IntegerField()
+    
 
     def __str__(self):
       return f"{self.nombre}, {self.color}, {self.edad} años"
