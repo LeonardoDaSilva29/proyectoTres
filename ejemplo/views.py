@@ -162,13 +162,13 @@ class ActualizarMascotas(View):
   
 
   def get(self, request, pk): 
-      mascota = get_object_or_404(Mascota, pk=pk)
+      mascota = get_object_or_404(Mascotas, pk=pk)
       form = self.form_class(instance=mascota)
       return render(request, self.template_name, {'form':form,'mascota': mascota})
 
 
   def post(self, request, pk): 
-      mascota = get_object_or_404(Mascota, pk=pk)
+      mascota = get_object_or_404(Mascotas, pk=pk)
       form = self.form_class(request.POST ,instance=mascota)
       if form.is_valid():
           form.save()
@@ -186,9 +186,9 @@ class BorrarMascotas(View):
   
 
   def get(self, request, pk): 
-      mascota = get_object_or_404(Mascota, pk=pk)
+      mascota = get_object_or_404(Mascotas, pk=pk)
       mascota.delete()
-      mascotas = Mascota.objects.all()
+      mascotas = Mascotas.objects.all()
       return render(request, self.template_name, {'lista_mascotas': mascotas})
 
 
@@ -197,7 +197,7 @@ class BorrarMascotas(View):
 
 class BuscarVehiculo(View):
     form_class = Buscar
-    template_name = 'ejemplo/buscar.html'
+    template_name = 'ejemplo/buscar_vehiculo.html'
     initial = {"modelo":""}
     def get(self, request):
         form = self.form_class(initial=self.initial)
@@ -206,7 +206,7 @@ class BuscarVehiculo(View):
         form = self.form_class(request.POST)
         if form.is_valid():
             modelo = form.cleaned_data.get("modelo")
-            lista_vehiculos = Vehiculo.objects.filter(nombre__icontains=modelo).all() 
+            lista_vehiculos = Vehiculos.objects.filter(nombre__icontains=modelo).all() 
             form = self.form_class(initial=self.initial)
             return render(request, self.template_name, {'form':form, 
                                                         'lista_vehiculos':lista_vehiculos})
@@ -240,13 +240,13 @@ class ActualizarVehiculos(View):
   
 
   def get(self, request, pk): 
-      vehiculo = get_object_or_404(Vehiculo, pk=pk)
+      vehiculo = get_object_or_404(Vehiculos, pk=pk)
       form = self.form_class(instance=vehiculo)
       return render(request, self.template_name, {'form':form,'vehiculo': vehiculo})
 
 
   def post(self, request, pk): 
-      vehiculo = get_object_or_404(Vehiculo, pk=pk)
+      vehiculo = get_object_or_404(Vehiculos, pk=pk)
       form = self.form_class(request.POST ,instance=vehiculo)
       if form.is_valid():
           form.save()
@@ -264,7 +264,7 @@ class BorrarVehiculo(View):
   
 
   def get(self, request, pk): 
-      vehiculo = get_object_or_404(Vehiculo, pk=pk)
+      vehiculo = get_object_or_404(Vehiculos, pk=pk)
       vehiculo.delete()
-      mascotas = Vehiculo.objects.all()
-      return render(request, self.template_name, {'lista_vehiculos': vehiculos})
+      mascotas = Vehiculos.objects.all()
+      return render(request, self.template_name, {'lista_vehiculos': vehiculo})
