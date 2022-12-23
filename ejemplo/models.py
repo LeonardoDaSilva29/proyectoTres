@@ -11,3 +11,21 @@ class Familiar(models.Model):
 
     def __str__(self):
       return f"{self.nombre}, {self.numero_pasaporte}, {self.id}"
+
+class Mascotas(models.Model):
+    
+    nombre = models.CharField(max_length=15)
+    edad = models.IntegerField()
+    color = models.CharField(max_length=15)
+
+    def __str__(self):
+      return f"{self.nombre}, {self.color}, {self.edad} años"
+
+class Vehiculos(models.Model):
+    
+    marca = models.CharField(max_length=20)
+    modelo = models.CharField(max_length=20)
+    año = models.IntegerField()
+
+    def __str__(self):
+      return f"{self.marca}, {self.modelo}, {self.año}"
